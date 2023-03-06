@@ -22,27 +22,26 @@
 
 using BH.oM.Base;
 using BH.oM.Base.Attributes;
+using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
 namespace BH.oM.Adapters.Urban
 {
-    [Description("Object description in here. Will appear in the UI tooltip.")]
-    public class ExampleObject : BHoMObject
+    [Description("Topography of the site represented with a Mesh3D.")]
+    public class Topography : BHoMObject
     {
-        // // See examples in the BHoM repo and the wiki to see how we define types.
-        // // Generally, all properties should be public and have public getter and setter.
-        // // BHoM Objects should have orthogonal properties and no behaviour (no methods), as in C# Records (or Python Dataclasses).
-        // // No constructor should be specified. If a specific instantiaton method is needed, we make it as an "Engine/Create" method.
-        // // Objects created with this convention will automatically appear as UI components (e.g. Grasshopper component).
+        [Description("Mesh Topography Input.")]
+        public virtual Mesh3D TopographMesh { get; set; } = new Mesh3D();
 
-        [Description("Property description in here.")]
-        public string SomeStringProperty { get; set; }
-
-        [Description("Property description in here.")]
-        public int SomeNumberProperty { get; set; }
     }
 }
+
+
+
+
 

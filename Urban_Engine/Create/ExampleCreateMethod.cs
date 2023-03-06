@@ -40,11 +40,11 @@ namespace BH.Engine.Adapters.Urban
         [Input("someInput1", "Description of the input. Will appear in the UI tooltip.")]
         [Input("someInput2", "Description of the input. Will appear in the UI tooltip.")]
         [Output("outputName", "Description of the output. Will appear in the UI tooltip.")]
-        public static ExampleObject ExampleCreateMethod(string someInput1, int someInput2)
+        public static Topography ExampleCreateMethod(string someInput1, int someInput2)
         {
             // This method will appear in every UI (e.g. Grasshopper) as a component.
             // Find it using the CTRL+Shift+B search bar, or by navigating the `Create` component (Engine tab) right click menu.
-            return new ExampleObject() { SomeStringProperty = someInput1, SomeNumberProperty = someInput2 };
+            return new Topography() { SomeStringProperty = someInput1, SomeNumberProperty = someInput2 };
         }
 
         /***************************************************/
