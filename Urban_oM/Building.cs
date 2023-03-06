@@ -36,14 +36,14 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Adapters.Urban
 {
     [Description("Buildings as solid representation defined by a collection of connected surfaces forming a closed volume")]
-    public class Building : ISolid, IImmutable
+    public class Building : Geometry.ISolid, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
+        public virtual ReadOnlyCollection<Geometry.ISurface> Surfaces { get; }
 
         [Volume]
         [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
