@@ -35,7 +35,7 @@ namespace BH.oM.Adapters.Urban
     public class StreetNetwork : BHoMObject, IElement1D
 
     {
-            [Description("water area in Mesh3D.")]
+            [Description("StreetCenetlines as Input.")]
             public virtual Line StreetSegment{ get; set; } = new Line();
             
 
