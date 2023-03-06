@@ -32,7 +32,7 @@ using System.Linq;
 namespace BH.oM.Adapters.Urban
 {
     [Description("WaterBody such as river, lake or pond represented with a mesh.")]
-    public class WaterBody : BHoMObject, IElementM
+    public class StreetNetwork : BHoMObject, IElementM
 
     {
             [Description("water area in Mesh3D.")]
