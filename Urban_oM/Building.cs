@@ -26,23 +26,36 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+using BH.oM.Quantities.Attributes;
+
 
 namespace BH.oM.Adapters.Urban
 {
-    [Description("Object description in here. Will appear in the UI tooltip.")]
-    public class ExampleObject : BHoMObject
+    [Description("Buildings as solid representation defined by a collection of connected surfaces forming a closed volume")]
+    public class Building : ISolid, IImmutable
     {
-        // // See examples in the BHoM repo and the wiki to see how we define types.
-        // // Generally, all properties should be public and have public getter and setter.
-        // // BHoM Objects should have orthogonal properties and no behaviour (no methods), as in C# Records (or Python Dataclasses).
-        // // No constructor should be specified. If a specific instantiaton method is needed, we make it as an "Engine/Create" method.
-        // // Objects created with this convention will automatically appear as UI components (e.g. Grasshopper component).
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("Property description in here.")]
-        public string SomeStringProperty { get; set; }
+        [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
+        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
 
-        [Description("Property description in here.")]
-        public int SomeNumberProperty { get; set; }
+        [Volume]
+        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
+        public virtual double Volume { get; } = double.NaN;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+
+        string Program { get; set; }
+        /***************************************************/
     }
 }
 
