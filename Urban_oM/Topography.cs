@@ -22,26 +22,22 @@
 
 using BH.oM.Base;
 using BH.oM.Base.Attributes;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
 namespace BH.oM.Adapters.Urban
 {
-    [Description("Topography of the site represented with a Mesh3D.")]
-    public class Topography : BHoMObject
-    {
-        [Description("Mesh Topography Input.")]
-        public virtual Mesh3D TopographMesh { get; set; } = new Mesh3D();
+    [Description("WaterBody such as river, lake or pond represented with a mesh.")]
+    public class Topography : BHoMObject, IElementM
 
+    {
+
+     [Description("Defines the three-dimensional Mesh geometry.")]
+     public virtual Mesh3D Mesh3D { get; set; } = null;
+     string Type { get; set; }
     }
 }
-
-
-
-
-

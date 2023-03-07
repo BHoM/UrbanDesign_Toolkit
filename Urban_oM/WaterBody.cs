@@ -35,9 +35,9 @@ namespace BH.oM.Adapters.Urban
     public class Waterbody : BHoMObject, IElementM
 
     {
-            [Description("water area in Mesh3D.")]
-            public virtual Mesh3D WaterMesh{ get; set; } = new Mesh3D();
-            
+
+     [Description("Defines the three-dimensional Mesh geometry.")]
+     public virtual Mesh3D Mesh3D { get; set; } = null;
 
     }
 }
